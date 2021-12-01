@@ -13,7 +13,7 @@ try {
 	console.error('Unable to connect to the database:', error);
 }
 
-app.use('/v1', routes);
+app.use('/api/v1/', routes);
 middleware(app);
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
