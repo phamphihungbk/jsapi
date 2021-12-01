@@ -9,14 +9,14 @@ router.route('/')
 	/** POST /api/v1/users - Create new user */
 	.post(userCtrl.create);
 
-router.route('/:userId')
-	/** GET /api/v1/users/:userId - Get user */
+router.route('/:id')
+	/** GET /api/v1/users/:id - Get user */
 	.get(userCtrl.get)
 
-	/** PUT /api/v1/users/:userId - Update user */
+	/** PUT /api/v1/users/:id - Update user */
 	.put(userCtrl.update)
 
-	/** DELETE /api/v1/users/:userId - Delete user */
+	/** DELETE /api/v1/users/:id - Delete user */
 	.delete(userCtrl.remove);
 
-module.exports = router;
+export default router;
