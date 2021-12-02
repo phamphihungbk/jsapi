@@ -8,7 +8,7 @@ const port = 3000;
 middleware(app);
 app.use('/api/v1/', routes);
 app.listen(port, () => {
-	console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Example app listening at http://localhost:${port}`);
 });
 
 export default app;
