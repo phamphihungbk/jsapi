@@ -5,10 +5,10 @@ import userRepo from '../repository/user.repository.js';
  * @returns {string}
  */
 async function remove(req, res) {
-	const userId = req.params.id;
-	await userRepo.deleteItem(userId);
+  const userId = req.params.id;
+  await userRepo.deleteItem(userId);
 
-	return res.status(200).json({ message: 'Successfully deleted' })
+  return res.status(200).json({ message: 'Successfully deleted' });
 }
 
 /**
@@ -16,11 +16,11 @@ async function remove(req, res) {
  * @returns {User, string}
  */
 async function update(req, res) {
-	const userId = req.params.id;
-	const updateInfo = req.body;
-	const data = await userRepo.updateItem(userId, updateInfo);
+  const userId = req.params.id;
+  const updateInfo = req.body;
+  const data = await userRepo.updateItem(userId, updateInfo);
 
-	return res.status(200).json({data:data, message: 'Successfully updated' })
+  return res.status(200).json({ data: data, message: 'Successfully updated' });
 }
 
 /**
@@ -29,13 +29,13 @@ async function update(req, res) {
  * @returns {[User], string}
  */
 async function list(req, res) {
-	const query = {
-		offset: req.query.offset ?? 0,
-		limit: req.query.limit ?? 20,
-	};
-	const data = await userRepo.getAllItems(query);
+  const query = {
+    offset: req.query.offset ?? 0,
+    limit: req.query.limit ?? 20,
+  };
+  const data = await userRepo.getAllItems(query);
 
-	return res.status(200).json({ data: data, message: 'Successfully found' })
+  return res.status(200).json({ data: data, message: 'Successfully found' });
 }
 
 /**
@@ -43,10 +43,10 @@ async function list(req, res) {
  * @returns {User, string}
  */
 async function get(req, res) {
-	const userId = req.params.id;
-	const data = await userRepo.getItem(userId);
+  const userId = req.params.id;
+  const data = await userRepo.getItem(userId);
 
-	return res.status(200).json({ data: data, message: 'Successfully found' })
+  return res.status(200).json({ data: data, message: 'Successfully found' });
 }
 
 /**
@@ -55,12 +55,12 @@ async function get(req, res) {
  * @returns {User, string}
  */
 async function create(req, res) {
-	const user = {
-		name: req.body.name,
-	};
-	const data = await userRepo.createItem(user);
+  const user = {
+    name: req.body.name,
+  };
+  const data = await userRepo.createItem(user);
 
-	return res.status(201).json({ data: data, message: 'Successfully created' })
+  return res.status(201).json({ data: data, message: 'Successfully created' });
 }
 
 export default { create, update, remove, list, get };

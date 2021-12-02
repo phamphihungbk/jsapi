@@ -5,8 +5,12 @@
 	"type": "module",
 	"main": "index.js",
 	"scripts": {
+		"lint": "eslint ./src/ --ignore-path .gitignore",
+		"lint:fix": "yarn lint --fix",
+		"lint:watch": "yarn lint --watch",
 		"prettier": "prettier --write '{src,__{tests,mocks}__}/**/*.js'",
 		"dev": "nodemon ./src/index.js",
+		"prod": "pm2 start ./src/index.js",
 		"db:migration": "sequelize db:migrate",
 		"db:migration:revert": "sequelize db:migrate:undo",
 		"db:seed": "sequelize db:seed:all"
@@ -37,6 +41,7 @@
 		"eslint-plugin-react-hooks": "^4.3.0",
 		"faker": "^5.5.3",
 		"helmet": "^4.6.0",
+		"jest": "^27.4.3",
 		"nodemon": "^2.0.15",
 		"prettier": "^2.4.1",
 		"sequelize-cli": "^6.3.0"
