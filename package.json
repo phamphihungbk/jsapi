@@ -6,9 +6,9 @@
 	"main": "index.js",
 	"scripts": {
 		"prettier": "prettier --write '{src,__{tests,mocks}__}/**/*.js'",
-		"dev": "nodemon ./index.js",
+		"dev": "nodemon ./src/index.js",
 		"db:migration": "sequelize db:migrate",
-		"db:revert": "sequelize db:migrate:undo",
+		"db:migration:revert": "sequelize db:migrate:undo",
 		"db:seed": "sequelize db:seed:all"
 	},
 	"keywords": [],

@@ -1,8 +1,7 @@
 import express from 'express';
-import sequelize from './app/database';
-import routes from './route/index';
-import middleware from './app/middleware';
-import './app/database';
+import './app/database.js';
+import routes from './route/index.js';
+import middleware from './app/middleware.js';
 const app = express();
 const port = 3000;
 
