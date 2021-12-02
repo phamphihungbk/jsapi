@@ -1,11 +1,13 @@
-import { DataTypes } from 'sequelize';
-import db from '../app/database';
+import DataTypes from 'sequelize';
+import db from '../app/database.js';
 
 const model = db.define(
 	'User',
 	{
 		id: {
+			primaryKey: true,
 			type: DataTypes.INTEGER,
+			autoIncrement: true,
 			allowNull: false,
 		},
 		name: {

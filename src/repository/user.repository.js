@@ -1,36 +1,26 @@
-import User from '../model/user.model';
+import User from '../model/user.model.js';
 
 async function getByIdOrFail(id) {
-	return await User.findOne(id);
-}
-
-async function getItem(id) {
-	const user = await getByIdOrFail(id);
-
-	if (user) {
+	const user = await User.findByPk(id);
+	if (!user) {
 		throw new Error('Can not find user');
 	}
 
 	return user;
 }
 
+async function getItem(id) {
+	return await getByIdOrFail(id);
+}
+
 async function updateItem(id, data) {
 	const user = await getByIdOrFail(id);
-	if (user) {
-		throw new Error('Can not find user');
-	}
-	Object.assign(user, data);
-
-	return await User.update(user);
+	return await user.update(data);
 }
 
 async function deleteItem(id) {
 	const user = await getByIdOrFail(id);
-	if (user) {
-		throw new Error('Can not find user');
-	}
-
-	return await User.delete(user);
+	return await user.destroy();
 }
 
 async function createItem(data) {
