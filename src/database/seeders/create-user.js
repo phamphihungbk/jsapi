@@ -2,7 +2,7 @@
 const faker = require('faker');
 const experiments = [...Array(50)].map((user) => (
 	{
-		name: faker.name,
+		name: faker.name.findName(),
 		createdAt: faker.date.recent(),
 		updatedAt: faker.date.recent(),
 	}
